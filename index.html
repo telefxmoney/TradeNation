@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '709407915393394');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=709407915393394&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Join My Telegram Channel</title>
+  
+  <!-- Facebook Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1287588372985714'); // ✅ Your Pixel ID
+  fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1287588372985714&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+
   <style>
     body {
       margin: 0;
@@ -82,12 +85,11 @@ src="https://www.facebook.com/tr?id=709407915393394&ev=PageView&noscript=1"
 </head>
 <body>
   <div class="container">
-    <a class="join-button" href="https://t.me/tradenation_signals001" target="_blank">👉 Tap to Join Now</a>
+    <a id="joinTelegramButton" class="join-button" href="https://t.me/tradenation_signals001" target="_blank">👉 Tap to Join Now</a>
     <div class="telegram-icon">📲</div>
     <h1>Join My FREE Telegram Channel!</h1>
     <p>💸 Daily Signals<br/>📊 Live Trades<br/>🤝 Community Support</p>
     <a class="join-button" href="https://t.me/tradenation_signals001" target="_blank">👉 Tap to Join Now</a>
-    <!-- Video element with controls for user to start audio -->
     <video controls>
       <source src="promo.mp4" type="video/mp4" />
       Your browser does not support the video tag.
@@ -96,5 +98,12 @@ src="https://www.facebook.com/tr?id=709407915393394&ev=PageView&noscript=1"
       Powered by Richmond Keys Trading
     </div>
   </div>
+
+  <!-- Custom tracking for button click -->
+  <script>
+    document.getElementById('joinTelegramButton').addEventListener('click', function() {
+      fbq('track', 'Lead');
+    });
+  </script>
 </body>
 </html>
