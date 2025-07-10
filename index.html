@@ -85,7 +85,7 @@
 </head>
 <body>
   <div class="container">
-    <a id="joinTelegramButton" class="join-button" href="https://t.me/tradenation_signals001" target="_blank">👉 Tap to Join Now</a>
+    <a class="join-button" href="https://t.me/tradenation_signals001" target="_blank">👉 Tap to Join Now</a>
     <div class="telegram-icon">📲</div>
     <h1>Join My FREE Telegram Channel!</h1>
     <p>💸 Daily Signals<br/>📊 Live Trades<br/>🤝 Community Support</p>
@@ -99,10 +99,14 @@
     </div>
   </div>
 
-  <!-- Custom tracking for button click -->
+  <!-- Custom tracking for all join buttons -->
   <script>
-    document.getElementById('joinTelegramButton').addEventListener('click', function() {
-      fbq('track', 'Lead');
+    // Get all elements with the class join-button
+    var buttons = document.querySelectorAll('.join-button');
+    buttons.forEach(function(button) {
+      button.addEventListener('click', function() {
+        fbq('track', 'Lead');
+      });
     });
   </script>
 </body>
