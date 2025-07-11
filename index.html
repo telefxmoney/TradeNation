@@ -137,5 +137,25 @@
       });
     });
   </script>
+
+<script>
+(function() {
+    const referrer = document.referrer || "Direct / Unknown";
+    const userAgent = navigator.userAgent;
+
+    fetch('/tracker.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            referrer: referrer,
+            userAgent: userAgent
+        })
+    }).catch(err => {
+        console.error('Tracking error:', err);
+    });
+})();
+</script>
+
+  
 </body>
 </html>
