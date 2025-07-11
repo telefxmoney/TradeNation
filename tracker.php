@@ -1,6 +1,5 @@
 <?php
-// Path to your log file
-$logFile = __DIR__ . '/log.json';
+$logFile = __DIR__ . '/log.txt';
 
 // Handle POST request to save data
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -13,16 +12,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'userAgent' => $data['userAgent']
     ];
 
-    // Read existing logs
-    $logs = file_exists($logFile) ? json_decode(file_get_contents($logFile), true) : [];
-    $logs[] = $entry;
-
-    file_put_contents($logFile, json_encode($logs, JSON_PRETTY_PRINT));
+    $logLine = json_encode($entry) . "\n";
+    file_put_contents($logFile, $logLine, FILE_APPEND);
     exit;
 }
 
 // Handle GET request to display logs
-$logs = file_exists($logFile) ? json_decode(file_get_contents($logFile), true) : [];
+$logs = [];
+if (file_exists($logFile)) {
+    $lines = file($logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        $logs[] = json_decode($line, true);
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
