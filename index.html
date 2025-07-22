@@ -6,21 +6,20 @@
   <title>Join My Telegram Channel</title>
 
   <!-- Facebook Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1422641192301441');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1422641192301441&ev=PageView&noscript=1"
-/></noscript>
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1422641192301441');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1422641192301441&ev=PageView&noscript=1"/></noscript>
   <!-- End Facebook Pixel Code -->
 
   <style>
@@ -99,9 +98,10 @@ src="https://www.facebook.com/tr?id=1422641192301441&ev=PageView&noscript=1"
   </style>
 </head>
 <body>
-    <a class="join-button" href="https://t.me/tradenation_signals001" target="_blank">🚀 JOIN FREE NOW 🚀</a>
 
-  
+  <!-- Top CTA Button -->
+  <a class="join-button" href="https://t.me/tradenation_signals001" target="_blank" data-name="TopButton">🚀 JOIN FREE NOW 🚀</a>
+
   <div class="container">
     <div class="headline">
       <span class="red">Unlock Financial Freedom</span><br>
@@ -112,7 +112,9 @@ src="https://www.facebook.com/tr?id=1422641192301441&ev=PageView&noscript=1"
 
     <p><strong>💸 Tired of Losing Trades?</strong></p>
     <p>Join 10,000+ smart traders getting daily profitable signals.</p>
-    <a class="join-button" href="https://t.me/tradenation_signals001" target="_blank">📲 YES! I Want Profitable Signals 📲</a>
+
+    <!-- Middle CTA -->
+    <a class="join-button" href="https://t.me/tradenation_signals001" target="_blank" data-name="MiddleButton">📲 YES! I Want Profitable Signals 📲</a>
 
     <div class="join-note">🎯 100% Free Access – Limited Time 🎯</div>
 
@@ -121,40 +123,43 @@ src="https://www.facebook.com/tr?id=1422641192301441&ev=PageView&noscript=1"
     <p><strong>✅ Real Trades. Real Results. Real Support.</strong></p>
     <p>👉 Tap the button and start your winning journey now.</p>
 
-    <a class="join-button" href="https://t.me/tradenation_signals001" target="_blank">🚀 JOIN FREE NOW 🚀</a>
+    <!-- Bottom CTA -->
+    <a class="join-button" href="https://t.me/tradenation_signals001" target="_blank" data-name="BottomButton">🚀 JOIN FREE NOW 🚀</a>
 
     <div class="footer-note">
       Powered by Richmond Keys Trading
     </div>
   </div>
 
+  <!-- Facebook Lead Event on Button Click -->
   <script>
-    var buttons = document.querySelectorAll('.join-button');
-    buttons.forEach(function(button) {
-      button.addEventListener('click', function() {
-        fbq('track', 'Lead');
+    document.querySelectorAll('.join-button').forEach(function(button) {
+      button.addEventListener('click', function(e) {
+        fbq('track', 'Lead', {
+          button_name: e.target.getAttribute('data-name') || "JoinButton"
+        });
       });
     });
   </script>
 
-<script>
-(function() {
-    const referrer = document.referrer || "Direct / Unknown";
-    const userAgent = navigator.userAgent;
+  <!-- Optional click tracker -->
+  <script>
+    (function() {
+      const referrer = document.referrer || "Direct / Unknown";
+      const userAgent = navigator.userAgent;
 
-    fetch('/tracker.php', {
+      fetch('/tracker.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            referrer: referrer,
-            userAgent: userAgent
+          referrer: referrer,
+          userAgent: userAgent
         })
-    }).catch(err => {
+      }).catch(err => {
         console.error('Tracking error:', err);
-    });
-})();
-</script>
+      });
+    })();
+  </script>
 
-  
 </body>
 </html>
